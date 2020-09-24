@@ -2287,12 +2287,8 @@ function! s:normalize_link_syntax_v() abort
     normal! gv""y
 
     " Set substitution
-    if vimwiki#base#is_diary_file(expand('%:p'))
-      let sub = vimwiki#base#normalize_link_in_diary(@")
-    else
-      let sub = s:safesubstitute(vimwiki#vars#get_global('WikiLinkTemplate1'),
+    let sub = s:safesubstitute(vimwiki#vars#get_global('WikiLinkTemplate2'),
             \ '__LinkUrl__', @", '')
-    endif
 
     " Put substitution in register " and change text
     let sc = vimwiki#vars#get_wikilocal('links_space_char')
